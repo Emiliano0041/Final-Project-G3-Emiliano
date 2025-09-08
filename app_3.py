@@ -48,7 +48,7 @@ if 'app_initialized' not in st.session_state:
 def load_base_dataframe():
     """Carga el DataFrame base - VERSIÓN SIMPLE"""
     try:
-        df_path = r"C:\Users\emili\OneDrive\Documentos\GitHub\Final-Project-G3-Emiliano\docs\df_processed.csv"
+        df_path = "data/df_processed.csv"
         
         if os.path.exists(df_path):
             df = pd.read_csv(df_path)
@@ -75,7 +75,7 @@ def load_base_dataframe():
 def load_model_simple():
     """Carga el modelo - VERSIÓN SIMPLE"""
     try:
-        model_path = r"C:\Users\emili\OneDrive\Documentos\GitHub\Final-Project-G3-Emiliano\models\modelo_emiliano_new.pkl"
+        model_path = "models/modelo_emiliano_new.pkl"
         
         if os.path.exists(model_path):
             with open(model_path, 'rb') as f:
