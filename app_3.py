@@ -173,7 +173,7 @@ def geocode_address_safe(address):
         if cache_key in st.session_state:
             return st.session_state[cache_key]
         
-        geolocator = Nominatim(user_agent="barcelona_predictor", timeout=10)
+        geolocator = Nominatim(user_agent="barcelona_predictor", timeout=20)
         
         location = geolocator.geocode(f"{address}, Barcelona, Spain")
         if location:
@@ -191,7 +191,7 @@ def get_route_osrm_safe(start_lat, start_lon, end_lat, end_lon):
     """Obtiene ruta usando OSRM de forma segura"""
     try:
         url = f"http://router.project-osrm.org/route/v1/driving/{start_lon},{start_lat};{end_lon},{end_lat}?overview=full&geometries=geojson"
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=20)
         
         if response.status_code == 200:
             data = response.json()
@@ -218,7 +218,7 @@ def get_alternative_safe_route(start_lat, start_lon, end_lat, end_lon, risk_poin
     try:
         # Primero intentar obtener alternativas de OSRM
         url = f"http://router.project-osrm.org/route/v1/driving/{start_lon},{start_lat};{end_lon},{end_lat}?overview=full&geometries=geojson&alternatives=true&steps=true"
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=20)
         
         if response.status_code == 200:
             data = response.json()
