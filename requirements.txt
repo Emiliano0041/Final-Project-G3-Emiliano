@@ -8,4 +8,6 @@ requests
 geopy
 scipy
 scikit-learn
+lightgbm
+
 
